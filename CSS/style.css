@@ -1,0 +1,141 @@
+:root { /* El root nos permite definir variables en CSS */
+    --blanco: #ffffff;     
+    --tiponegro: #212121;
+    --tipoamarillo: #ffc107;
+    --tipoazul: #10c7dbab;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+}
+/* GLOBALES */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box; /* No afecta a el tamaño de la caja al momento de colocar un padding, borde, etc. */
+}
+*, *:before, *:after { /* "*" es un selector universal y selecciona todos los elementos del html*/
+    box-sizing: inherit;
+}
+body { /*Lo que este adentro de las llaves del body lo va aplicar a toda la pagina web */
+    font-size: 16px; /* 1rem = 10px */
+    font-family: 'Krub', sans-serif; /* Tipo de letra. Se pone en body para que lo aplique a todos los elementos del archivo html donde se puso esta hoja de estilo */
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*Se aplica un degradado a la pagina web de abajo 0% hacia arriba 100% */
+}
+/* TIPOGRAFIA DE h1 h2 h3 */
+h1 {
+    font-size: 3.8rem; /* Cambia el tamaño de la fuente */
+}
+h2 {
+    font-size: 2.8rem; 
+}
+h3 {
+    font-size: 3.8rem; 
+}
+h1,h2,h3 {
+    text-align: center;/* Centra el texto */
+}
+
+.titulo span { /*Sirve para aplicar estilo al texto o agrupar elementos en línea*/
+    font-size: 2rem;
+}
+
+.contenedor {
+    max-width: 120rem; /*Especifica la anchura del area de contenido de un elemento. Con max da un limite maximo y solamente si hay ese espacio disponible, si no toma el 100% en este caso del div*/
+  /*margin-top: 0; margen hacia arriba 
+    margin-right: auto; margen a la derecha 
+    margin-bottom: 0; margen hacia abajo 
+    margin-left: auto;  margen a la izquierda */
+    margin: 0 auto 0 auto;  
+}
+
+.boton {
+    background-color: var(--tipoazul);
+    color: var(--blanco);
+    padding: 1rem 3rem 1rem 3rem; /*Arriba derecha abajo izquierda. Si los primeros dos valores se repiten se pueden eliminar los ultimos dos valores 1rem 3rem */
+    margin-top: 1rem; /*Para dejar espacio entre el elemento de arriba y el boton*/
+    font-size: 2rem;
+    text-decoration: none; /*Quita el subrayado del texto*/
+    text-transform: uppercase; /*Hace las letras mayusculas */
+    font-weight: bold; /*Hace el texto en negritas*/
+    border-radius: 0.5rem; /*Redondea los bordes de un background*/
+    width: 90%; /*Ancho*/
+    text-align: center;
+
+}
+@media (min-width: 768px) { /*Apartir de 768px se ejecutara la intruccion dentro de las llaves*/
+    .boton {
+        width: auto; /*Resetea el ancho del boton*/
+    }
+}
+
+.nav-bg { /*Ejemplo de Utility first*/
+    background-color: var(--tipoazul); /* color de fondo */ 
+
+}
+
+.navegacion-principal {
+    display:flex; /*Habilita las propiedades del dispaly flex */
+    flex-direction: column;
+
+}
+@media (min-width: 768px) { /*768px: table o algo mas grade*/
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between; /* Distribuye mejor el contenido */
+    } 
+}
+
+.navegacion-principal a {
+    text-align: center; /*Alinea el texto verticalmente*/
+    color: var(--blanco);
+    text-decoration: none; /*Quita las lineas de los enlaces*/
+    font-size: 2rem;
+    font-weight: bold; /* Letra en negritas */
+    padding: 1rem; /* Camabia el ancho de afuera hacia adentro en las 4 direcciones  */
+}
+
+.navegacion-principal a:hover { /* Colorea al poner el mouse sobre el enlace  */
+    background-color: var(--tipoamarillo);
+    color: var(--tiponegro);
+}
+
+.hero {
+    background-image: url(/imagenes/hero.jpg); /*Cargar una imagen de fondo */
+    background-repeat: no-repeat; /*No repite la imagen de fondo */
+    background-size: cover; /*Amplia la imagen de fondo para cubrir todo el espacio de la pantalla*/
+    height: 450px; /*Altura de la imagen*/
+    position: relative; /* El padre siempre debe llevar posicion relativa para poder posicionar al hijo*/
+}
+
+.contenido-hero {
+    position: absolute; /* contenido-hero es el que queremos posicionar por eso va "position: absolute"*/
+    background-color: rgba(0,0,0,.7); /*Anterior forma*/
+    background-color: rgb(0 0 0 / 70%); /*Nueva forma*/
+    width: 100%; /* Tomamos el 100% del ancho del padre o en su caso del section*/
+    height: 100%; 
+    
+    display: flex;   /*Estas 4 lineas alinean vertical y horizontalmente un contenido  */
+    flex-direction: column; /*Cuando se quiere alinear se algun contenido se tiene que poner el codigo en el padre */
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2, /**/
+.contenido-hero p {
+    color: var(--blanco)
+
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 7px 20px 0px rgba(66,66,66,0.6); /*Codigo creado con css matic para hacer un cuadro con sombra*/
+    -moz-box-shadow: 0px 7px 20px 0px rgba(66,66,66,0.6);
+    box-shadow: 0px 7px 20px 0px rgba(66,66,66,0.6);
+    background-color: var(--blanco);
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: 1rem;
+}
+
+/* SERVICIOS */
+.servicios {
+    display: grid; /*Agrega las propiedades de CSS grid*/
+
+}
